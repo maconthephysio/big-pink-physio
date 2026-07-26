@@ -154,6 +154,8 @@ p{margin:0 0 var(--s-4);}
 .brand{display:flex;align-items:center;gap:var(--s-3);text-decoration:none;}
 .brand:hover{text-decoration:none;}
 .brand__mark{width:34px;height:34px;flex:none;}
+.brand__logo{height:40px;width:auto;display:block;}
+@media (max-width:520px){.brand__logo{height:32px;}}
 .brand__word{
   font-family:var(--font-display);text-transform:uppercase;font-weight:900;
   color:var(--white);line-height:.9;font-size:1.05rem;letter-spacing:.01em;
@@ -311,11 +313,11 @@ p{margin:0 0 var(--s-4);}
 .footer__brand .brand__word{font-size:1.6rem;}
 .footer__mark{width:44px;height:44px;margin-bottom:var(--s-4);}
 .footer__tagline{color:var(--ink-300);max-width:34ch;margin-top:var(--s-3);}
-.footer h4{color:var(--white);font-size:1rem;letter-spacing:.06em;margin-bottom:var(--s-4);}
-.footer ul{list-style:none;padding:0;margin:0;}
-.footer li{margin-bottom:var(--s-2);}
-.footer a{color:var(--ink-200);font-size:.95rem;}
-.footer a:hover{color:var(--pink-500);text-decoration:none;}
+.site-footer h4{color:var(--white);font-size:1rem;letter-spacing:.06em;margin-bottom:var(--s-4);}
+.site-footer ul{list-style:none;padding:0;margin:0;}
+.site-footer li{margin-bottom:var(--s-2);}
+.site-footer a{color:var(--ink-200);font-size:.95rem;}
+.site-footer a:hover{color:var(--pink-500);text-decoration:none;}
 .footer__bottom{
   display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s-3);
   border-top:1px solid var(--ink-700);margin-top:var(--s-12);padding-top:var(--s-6);
