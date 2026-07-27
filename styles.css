@@ -156,6 +156,7 @@ p{margin:0 0 var(--s-4);}
 .brand__mark{width:34px;height:34px;flex:none;}
 .brand__logo{height:40px;width:auto;display:block;}
 @media (max-width:520px){.brand__logo{height:32px;}}
+.footer__logo{width:100%;max-width:300px;height:auto;display:block;margin-bottom:var(--s-4);}
 .brand__word{
   font-family:var(--font-display);text-transform:uppercase;font-weight:900;
   color:var(--white);line-height:.9;font-size:1.05rem;letter-spacing:.01em;
