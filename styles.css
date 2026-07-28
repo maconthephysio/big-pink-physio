@@ -40,7 +40,7 @@
 
   --container:1200px;
   --gutter:clamp(1.25rem,5vw,4rem);
-  --section:clamp(4rem,8vw,8rem);
+  --section:clamp(3.25rem,5.5vw,5.5rem);
 }
 
 /* ---------- Reset ---------- */
@@ -93,6 +93,10 @@ p{margin:0 0 var(--s-4);}
 /* ---------- Layout ---------- */
 .container{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter);}
 .section{padding-block:var(--section);}
+/* Collapse the doubled gap where two same-colour sections meet, so blocks read as one continuous band instead of a big dead space. */
+.section--paper + .section--paper,
+.section--ink + .section--ink,
+.section--pink + .section--pink{padding-top:0;}
 .section--paper{background:var(--paper);}
 .section--ink{background:var(--ink-900);color:var(--ink-100);}
 .section--ink h1,.section--ink h2,.section--ink h3,.section--ink h4{color:var(--white);}
