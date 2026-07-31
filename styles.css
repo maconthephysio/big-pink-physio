@@ -351,6 +351,8 @@ p{margin:0 0 var(--s-4);}
 .faq-item[open] summary::after{content:"\2013";}
 .faq-item summary:hover{color:var(--pink-600);}
 .faq-item > p{margin:0 0 var(--s-6);color:var(--ink-700);font-size:1.0625rem;line-height:1.6;max-width:70ch;}
+.faq-item ul{max-width:70ch;margin:0 0 var(--s-6);}
+.faq-item ul li{color:var(--ink-700);font-size:1.0625rem;}
 .skip-link{position:absolute;left:-999px;}
 .skip-link:focus{left:var(--s-3);top:var(--s-3);z-index:100;background:var(--pink-500);color:#000;padding:.5rem 1rem;border-radius:var(--r-sm);}
 
