@@ -322,7 +322,15 @@ p{margin:0 0 var(--s-4);}
 .mini-form input:focus,
 .mini-form textarea:focus{outline:2px solid var(--pink-400);outline-offset:1px;border-color:var(--pink-500);}
 .mini-form textarea{min-height:130px;resize:vertical;}
+.mini-form .field-inline{display:flex;align-items:center;gap:var(--s-4);}
+.mini-form .field-inline label{flex:0 0 175px;margin:0;}
+.mini-form .field-inline input{flex:1 1 auto;}
+@media (max-width:520px){
+  .mini-form .field-inline{display:block;}
+  .mini-form .field-inline label{margin-bottom:var(--s-2);}
+}
 .mini-form .check{display:flex;gap:.6rem;align-items:flex-start;}
+.mini-form .check--spaced{margin-top:var(--s-5);}
 .mini-form .check input{margin-top:.25rem;flex:0 0 auto;width:1.1rem;height:1.1rem;accent-color:var(--pink-500);}
 .mini-form .check label{font-weight:500;margin:0;color:var(--pink-800);}
 .mini-form .check a{color:var(--pink-800);text-decoration:underline;}

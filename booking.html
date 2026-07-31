@@ -91,15 +91,15 @@
         </div>
 
         <form class="mini-form" id="booking-form" novalidate>
-          <div>
+          <div class="field-inline">
             <label for="bf-name">Name</label>
             <input type="text" id="bf-name" name="name" autocomplete="name" required>
           </div>
-          <div>
+          <div class="field-inline">
             <label for="bf-phone">Best contact number</label>
             <input type="tel" id="bf-phone" name="phone" autocomplete="tel" required>
           </div>
-          <div>
+          <div class="field-inline">
             <label for="bf-email">Best email address</label>
             <input type="email" id="bf-email" name="email" autocomplete="email" required>
           </div>
@@ -109,9 +109,13 @@
           </div>
           <div class="check">
             <input type="checkbox" id="bf-telehealth" name="telehealth">
-            <label for="bf-telehealth">I'd like a Telehealth or home visit session (rather than in-person at Dee Why)</label>
+            <label for="bf-telehealth">Would you like a Telehealth appointment?</label>
           </div>
           <div class="check">
+            <input type="checkbox" id="bf-homevisit" name="homevisit">
+            <label for="bf-homevisit">Would you like a home visit appointment?</label>
+          </div>
+          <div class="check check--spaced">
             <input type="checkbox" id="bf-terms" name="terms" required>
             <label for="bf-terms">I have read and accept the terms in the <a href="privacy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
           </div>
@@ -193,6 +197,7 @@
       var email = document.getElementById('bf-email').value.trim();
       var message = document.getElementById('bf-message').value.trim();
       var telehealth = document.getElementById('bf-telehealth').checked;
+      var homevisit = document.getElementById('bf-homevisit').checked;
       var terms = document.getElementById('bf-terms').checked;
       if (!name || !phone || !email || !message) {
         show('Please fill in your name, contact number, email and what you’re experiencing.');
@@ -203,7 +208,10 @@
         return;
       }
       note.hidden = true;
-      var sessionType = telehealth ? 'Telehealth or home visit' : 'In-person (Dee Why)';
+      var prefs = [];
+      if (telehealth) prefs.push('Telehealth');
+      if (homevisit) prefs.push('Home visit');
+      var sessionType = prefs.length ? prefs.join(' + ') : 'In-person (Dee Why)';
       var body =
         'Name: ' + name + '\n' +
         'Best contact number: ' + phone + '\n' +
