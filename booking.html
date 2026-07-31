@@ -59,28 +59,68 @@
   <section class="section section--paper">
     <div class="container narrow">
 
-      <!-- =====================================================================
-           CLINIKO BOOKING - DROP-IN POINT
-           Replace the placeholder block below with your Cliniko embed OR link:
+      <!-- ===== CLINIKO BOOKING PORTAL (in-person, Dee Why) ===== -->
+      <div class="booking-intro">
+        <span class="eyebrow eyebrow--rule">Book online</span>
+        <h2>In-person appointments at Dee Why</h2>
+        <p class="prose">Use the portal below to book an in-person session at the clinic in Dee Why. Choose a time that suits you and you're set. For a Telehealth or home visit instead, use the email form further down.</p>
+      </div>
 
-           OPTION A - Embedded widget (recommended):
-             <iframe src="https://YOUR-SUBDOMAIN.au3.cliniko.com/bookings?embedded=true"
-                     width="100%" height="900" frameborder="0"
-                     title="Book an appointment"></iframe>
+      <div class="cliniko-embed" style="margin-top:var(--s-8);">
+        <iframe id='cliniko-31437875' src='https://fixio.au1.cliniko.com/bookings?business_id=63823&practitioner_id=1622827622788498756&embedded=true' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;' allow='payment'></iframe>
+        <script type='text/javascript'>
+          window.addEventListener('message', function handleIFrameMessage (e) {
+            var clinikoBookings = document.getElementById('cliniko-31437875');
+            if (typeof e.data !== 'string') return;
+            if (e.data.search('cliniko-bookings-resize') > -1) {
+              var height = Number(e.data.split(':')[1]);
+              clinikoBookings.style.height = height + 'px';
+            }
+            e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView();
+          });
+        </script>
+      </div>
 
-           OPTION B - Button link to your Cliniko page:
-             Point every "Book now" href across the site to your Cliniko URL,
-             e.g. https://YOUR-SUBDOMAIN.au3.cliniko.com/bookings
-      ===================================================================== -->
-
-      <div class="placeholder center" style="padding:var(--s-16) var(--s-6);">
-        <h3 style="color:var(--pink-800);">Online booking coming soon</h3>
-        <p>In the meantime, you can reach out directly below.</p>
-        <div class="btn-row" style="justify-content:center;margin-top:var(--s-4);">
-          <a class="btn btn--primary" href="mailto:mace@thebigpinkphysio.com.au?subject=Booking%20enquiry">Email to book</a>
-          <a class="btn btn--outline" href="contact.html" style="color:var(--pink-800);">Contact page</a>
+      <!-- ===== EMAIL / TELEHEALTH + HOME VISIT ENQUIRY ===== -->
+      <div class="placeholder" style="margin-top:var(--s-12);padding:var(--s-8) var(--s-6);">
+        <span class="eyebrow">Prefer to book by email?</span>
+        <h3 style="color:var(--pink-800);margin-top:var(--s-2);">Telehealth, home visits &amp; general enquiries</h3>
+        <p>Email me directly, or fill in the short form below and I'll be in touch to lock in a time.</p>
+        <div class="btn-row" style="margin-top:var(--s-4);margin-bottom:var(--s-6);">
+          <a class="btn btn--primary" href="mailto:mace@thebigpinkphysio.com.au?subject=Booking%20enquiry">Book via email</a>
         </div>
-        <p class="muted" style="margin-top:var(--s-6);margin-bottom:0;">Practising out of Fixio Physiotherapy, Dee Why.</p>
+
+        <form class="mini-form" id="booking-form" novalidate>
+          <div>
+            <label for="bf-name">Name</label>
+            <input type="text" id="bf-name" name="name" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="bf-phone">Best contact number</label>
+            <input type="tel" id="bf-phone" name="phone" autocomplete="tel" required>
+          </div>
+          <div>
+            <label for="bf-email">Best email address</label>
+            <input type="email" id="bf-email" name="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="bf-message">What are you experiencing?</label>
+            <textarea id="bf-message" name="message" placeholder="A short background on what's going on, when it started, and what you're hoping to sort out." required></textarea>
+          </div>
+          <div class="check">
+            <input type="checkbox" id="bf-telehealth" name="telehealth">
+            <label for="bf-telehealth">I'd like a Telehealth or home visit session (rather than in-person at Dee Why)</label>
+          </div>
+          <div class="check">
+            <input type="checkbox" id="bf-terms" name="terms" required>
+            <label for="bf-terms">I have read and accept the terms in the <a href="privacy.html">Privacy Policy</a>. <span aria-hidden="true">*</span></label>
+          </div>
+          <p class="mini-form__note badge-note" id="bf-note" role="alert" hidden></p>
+          <div class="btn-row">
+            <button type="submit" class="btn btn--primary">Send enquiry</button>
+          </div>
+          <p class="mini-form__fineprint">This opens your email app with the details ready to send - just press send.</p>
+        </form>
       </div>
 
       <div class="grid grid--3" style="margin-top:var(--s-12);">
@@ -140,5 +180,43 @@
 </footer>
 
 <script src="app.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById('booking-form');
+    if (!form) return;
+    var note = document.getElementById('bf-note');
+    function show(msg) { note.textContent = msg; note.hidden = false; }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('bf-name').value.trim();
+      var phone = document.getElementById('bf-phone').value.trim();
+      var email = document.getElementById('bf-email').value.trim();
+      var message = document.getElementById('bf-message').value.trim();
+      var telehealth = document.getElementById('bf-telehealth').checked;
+      var terms = document.getElementById('bf-terms').checked;
+      if (!name || !phone || !email || !message) {
+        show('Please fill in your name, contact number, email and what you’re experiencing.');
+        return;
+      }
+      if (!terms) {
+        show('Please accept the Privacy Policy terms before sending.');
+        return;
+      }
+      note.hidden = true;
+      var sessionType = telehealth ? 'Telehealth or home visit' : 'In-person (Dee Why)';
+      var body =
+        'Name: ' + name + '\n' +
+        'Best contact number: ' + phone + '\n' +
+        'Best email: ' + email + '\n' +
+        'Preferred session: ' + sessionType + '\n\n' +
+        'What I’m experiencing:\n' + message + '\n\n' +
+        'I have read and accept the Privacy Policy terms.';
+      var subject = 'Booking enquiry - ' + name;
+      window.location.href = 'mailto:mace@thebigpinkphysio.com.au'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+    });
+  })();
+</script>
 </body>
 </html>

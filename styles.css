@@ -308,6 +308,30 @@ p{margin:0 0 var(--s-4);}
 .placeholder .eyebrow{color:var(--pink-700);}
 .placeholder p{color:var(--pink-800);}
 
+/* ---------- Mini booking form ---------- */
+.mini-form{display:grid;gap:var(--s-5);text-align:left;max-width:560px;}
+.mini-form label{display:block;font-weight:600;color:var(--pink-800);margin-bottom:var(--s-2);font-size:.95rem;}
+.mini-form input[type=text],
+.mini-form input[type=tel],
+.mini-form input[type=email],
+.mini-form textarea{
+  width:100%;padding:.7rem .85rem;border:1px solid var(--pink-300);
+  border-radius:var(--r-sm);background:var(--white);color:var(--ink-900);
+  font:inherit;line-height:1.4;
+}
+.mini-form input:focus,
+.mini-form textarea:focus{outline:2px solid var(--pink-400);outline-offset:1px;border-color:var(--pink-500);}
+.mini-form textarea{min-height:130px;resize:vertical;}
+.mini-form .check{display:flex;gap:.6rem;align-items:flex-start;}
+.mini-form .check input{margin-top:.25rem;flex:0 0 auto;width:1.1rem;height:1.1rem;accent-color:var(--pink-500);}
+.mini-form .check label{font-weight:500;margin:0;color:var(--pink-800);}
+.mini-form .check a{color:var(--pink-800);text-decoration:underline;}
+.mini-form__note{color:#b00046;font-weight:600;margin:0;}
+.mini-form__fineprint{color:var(--pink-700);font-size:.85rem;margin:0;}
+
+/* ---------- Cliniko embed ---------- */
+.cliniko-embed iframe{display:block;width:100%;border:0;border-radius:var(--r-md);background:var(--white);}
+
 /* ---------- Anchor offset for sticky nav ---------- */
 .anchor{scroll-margin-top:90px;}
 
