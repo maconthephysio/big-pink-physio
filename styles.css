@@ -198,6 +198,27 @@ p{margin:0 0 var(--s-4);}
 .nav__links a:hover{color:var(--pink-500);border-bottom-color:var(--pink-500);text-decoration:none;}
 .nav__links a.is-active{color:var(--white);border-bottom-color:var(--pink-500);}
 .nav__cta{margin-left:var(--s-2);}
+
+/* ---------- Conditions dropdown ---------- */
+.nav__caret{font-size:.7em;opacity:.85;}
+.has-dropdown{position:relative;}
+.nav__submenu{list-style:none;margin:0;padding:0;}
+@media (min-width:881px){
+  .nav__submenu{
+    position:absolute;top:100%;left:0;min-width:280px;
+    background:var(--ink-900);border:1px solid var(--ink-700);
+    border-top:2px solid var(--pink-500);border-radius:0 0 var(--r-md) var(--r-md);
+    padding:var(--s-2) 0;box-shadow:var(--shadow-soft);
+    opacity:0;visibility:hidden;transform:translateY(6px);
+    transition:opacity .14s ease,transform .14s ease,visibility .14s;z-index:60;
+  }
+  .has-dropdown:hover .nav__submenu,
+  .has-dropdown:focus-within .nav__submenu{opacity:1;visibility:visible;transform:translateY(0);}
+  .nav__submenu li{width:auto;}
+  .nav__submenu a{display:block;padding:var(--s-2) var(--s-5);border-bottom:0;font-size:.82rem;white-space:nowrap;}
+  .nav__submenu a:hover{background:var(--ink-800);color:var(--pink-500);border-bottom:0;}
+  .nav__submenu a.is-active{color:var(--white);border-bottom:0;}
+}
 .nav__toggle{
   display:none;background:none;border:0;cursor:pointer;padding:var(--s-2);
   color:var(--white);
@@ -213,10 +234,13 @@ p{margin:0 0 var(--s-4);}
     padding:var(--s-3) var(--gutter);
     max-height:0;overflow:hidden;transition:max-height .2s ease-out;
   }
-  .nav__links.is-open{max-height:520px;}
+  .nav__links.is-open{max-height:1200px;}
   .nav__links li{width:100%;}
   .nav__links a{display:block;width:100%;padding:var(--s-3) 0;border-bottom:1px solid var(--ink-700);}
   .nav__links a.btn{margin-top:var(--s-2);border:2px solid transparent;width:auto;}
+  .nav__caret{display:none;}
+  .nav__submenu{padding-left:var(--s-4);}
+  .nav__submenu a{font-size:.85rem;color:var(--ink-200);padding:var(--s-2) 0;}
 }
 
 /* ---------- Hero ---------- */
@@ -264,9 +288,15 @@ p{margin:0 0 var(--s-4);}
   display:inline-flex;align-items:center;gap:6px;
 }
 .card--dark .card__more{color:var(--pink-500);}
+.card__more--soon{color:var(--ink-400);cursor:default;pointer-events:none;}
 
 /* Pink top-accent card */
 .card--accent{border-top:4px solid var(--pink-500);}
+
+/* "Page coming soon" card (dashed pink placeholder look) */
+.card--soon{border:2px dashed var(--pink-400);background:var(--pink-50);box-shadow:none;}
+.card--soon:hover{border-color:var(--pink-500);}
+.card--soon .eyebrow{margin-bottom:var(--s-2);}
 
 /* ---------- Feature list ---------- */
 .checklist{list-style:none;padding:0;margin:0;}
