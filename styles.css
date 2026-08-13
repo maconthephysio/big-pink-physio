@@ -83,7 +83,7 @@ h4{font-size:1.4rem;}
   padding-left:var(--s-3);line-height:1.1;
 }
 p{margin:0 0 var(--s-4);}
-.lead{font-size:1.375rem;line-height:1.45;color:var(--ink-700);}
+.lead{font-size:clamp(1.0625rem,0.98rem + 0.55vw,1.375rem);line-height:1.5;color:var(--ink-700);}
 .accent{color:var(--pink-500);}
 .prose{max-width:68ch;}
 .prose p,.prose li{font-size:1.0625rem;color:var(--ink-700);}
@@ -159,7 +159,8 @@ p{margin:0 0 var(--s-4);}
 .brand:hover{text-decoration:none;}
 .brand__mark{width:34px;height:34px;flex:none;}
 .brand__logo{height:40px;width:auto;display:block;}
-@media (max-width:520px){.brand__logo{height:32px;}}
+@media (max-width:880px){.brand__logo{height:52px;}}
+@media (max-width:520px){.brand__logo{height:54px;}.nav{padding-block:var(--s-2);}}
 .footer__logo{width:100%;max-width:300px;height:auto;display:block;margin-bottom:var(--s-4);}
 .brand__word{
   font-family:var(--font-display);text-transform:uppercase;font-weight:900;
@@ -254,7 +255,7 @@ p{margin:0 0 var(--s-4);}
 }
 .hero__inner{position:relative;z-index:1;padding-block:clamp(4.5rem,10vw,9rem);}
 .hero .display{max-width:16ch;}
-.hero__sub{max-width:52ch;color:var(--ink-200);font-size:1.375rem;line-height:1.45;margin-bottom:var(--s-8);}
+.hero__sub{max-width:52ch;color:var(--ink-200);font-size:clamp(1.125rem,1rem + 0.6vw,1.375rem);line-height:1.5;margin-bottom:var(--s-8);}
 .hero .btn-row{margin-top:var(--s-6);}
 
 /* ---------- Cards ---------- */
@@ -379,7 +380,11 @@ p{margin:0 0 var(--s-4);}
 @media (max-width:760px){.footer__top{grid-template-columns:1fr;gap:var(--s-6);}}
 .footer__brand .brand__word{font-size:1.6rem;}
 .footer__mark{width:44px;height:44px;margin-bottom:var(--s-4);}
-.footer__tagline{color:var(--ink-300);max-width:34ch;margin-top:var(--s-3);}
+.footer__tagline{
+  font-family:var(--font-display);text-transform:uppercase;font-weight:800;
+  font-size:1.35rem;line-height:1.05;letter-spacing:.02em;color:var(--ink-200);
+  max-width:300px;margin-top:var(--s-3);
+}
 .site-footer h4{color:var(--white);font-size:1rem;letter-spacing:.06em;margin-bottom:var(--s-4);}
 .site-footer ul{list-style:none;padding:0;margin:0;}
 .site-footer li{margin-bottom:var(--s-2);}
