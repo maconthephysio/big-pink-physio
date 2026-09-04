@@ -61,7 +61,7 @@ a{color:var(--pink-600);text-decoration:none;}
 a:hover{text-decoration:underline;text-underline-offset:3px;}
 
 /* ---------- Typography ---------- */
-h1,h2,h3,h4,.eyebrow,.display{
+h1,h2,h3,h4,.display{
   font-family:var(--font-display);
   text-transform:uppercase;
   font-weight:900;
@@ -75,7 +75,8 @@ h2{font-size:clamp(1.6rem,1.25rem + 1.7vw,2.3rem);}
 h3{font-size:clamp(1.3rem,1.1rem + 1.1vw,1.7rem);}
 h4{font-size:1.2rem;}
 .eyebrow{
-  font-size:.82rem;letter-spacing:.14em;font-weight:800;
+  font-family:var(--font-display);text-transform:uppercase;font-style:italic;
+  font-size:.82rem;letter-spacing:.02em;font-weight:800;line-height:1.15;
   color:var(--pink-500);margin-bottom:var(--s-3);display:inline-block;
 }
 .eyebrow--rule{
@@ -158,9 +159,9 @@ p{margin:0 0 var(--s-4);}
 .brand{display:flex;align-items:center;gap:var(--s-3);text-decoration:none;}
 .brand:hover{text-decoration:none;}
 .brand__mark{width:34px;height:34px;flex:none;}
-.brand__logo{height:46px;width:auto;display:block;}
-@media (max-width:880px){.brand__logo{height:52px;}}
-@media (max-width:520px){.brand__logo{height:54px;}.nav{padding-block:var(--s-2);}}
+.brand__logo{height:58px;width:auto;display:block;}
+@media (max-width:880px){.brand__logo{height:64px;}}
+@media (max-width:520px){.brand__logo{height:64px;}.nav{padding-block:var(--s-2);}}
 .footer__logo{width:100%;max-width:300px;height:auto;display:block;margin-bottom:var(--s-4);}
 .brand__word{
   font-family:var(--font-display);text-transform:uppercase;font-weight:900;
