@@ -406,6 +406,12 @@ p{margin:0 0 var(--s-4);}
 .page-head__inner{position:relative;z-index:1;}
 .page-head .lead{color:var(--ink-200);max-width:60ch;}
 
+/* Image headings (first block below header) */
+.head-img{margin:0 0 var(--s-5);line-height:0;}
+.head-img img{display:block;width:auto;height:auto;max-width:min(94%,880px);max-height:150px;}
+@media (max-width:880px){.head-img img{max-height:122px;}}
+@media (max-width:520px){.head-img img{max-width:94%;max-height:92px;}}
+
 /* ---------- Misc ---------- */
 .divider{height:1px;background:var(--ink-100);border:0;margin-block:var(--s-8);}
 .badge-note{font-size:.85rem;color:var(--ink-400);}
