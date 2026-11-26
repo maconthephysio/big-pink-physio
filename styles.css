@@ -149,7 +149,7 @@ p{margin:0 0 var(--s-4);}
 /* ---------- Header / nav ---------- */
 .site-header{
   position:sticky;top:0;z-index:50;
-  background:rgba(11,11,13,.82);backdrop-filter:blur(10px);
+  background:var(--black);
   border-bottom:1px solid var(--ink-700);
 }
 .nav{
@@ -159,9 +159,9 @@ p{margin:0 0 var(--s-4);}
 .brand{display:flex;align-items:center;gap:var(--s-3);text-decoration:none;}
 .brand:hover{text-decoration:none;}
 .brand__mark{width:34px;height:34px;flex:none;}
-.brand__logo{height:58px;width:auto;display:block;}
-@media (max-width:880px){.brand__logo{height:64px;}}
-@media (max-width:520px){.brand__logo{height:64px;}.nav{padding-block:var(--s-2);}}
+.brand__logo{height:80px;width:auto;max-width:72vw;display:block;}
+@media (max-width:880px){.brand__logo{height:68px;}}
+@media (max-width:520px){.brand__logo{height:auto;width:min(74vw,300px);}.nav{padding-block:var(--s-2);}}
 .footer__logo{width:100%;max-width:300px;height:auto;display:block;margin-bottom:var(--s-4);}
 .brand__word{
   font-family:var(--font-display);text-transform:uppercase;font-weight:900;
